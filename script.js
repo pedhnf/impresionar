@@ -1,15 +1,16 @@
 const terminal = document.getElementById("terminal");
-
 const linhas = [
-  "Booting system...",
-  "Loading modules [OK]",
-  "Connecting to server [OK]",
-  "Initializing interface...",
-  "Access granted.",
+  "Booting... calibrando temperatura 🔥",
+  "Carregando módulos de atitude [OK]",
+  "Conectando ao servidor da ousadia [OK]",
+  "Iniciando protocolos de química...",
+  "Acesso concedido: risco de faísca alto.",
   "",
-  "Mensagem do sistema: Algumas linhas de código valem quando inspiradas em alguém especial.",
+  "Mensagem do sistema: se continuar assim, vou travar só pra te ver me reiniciar...",
   "",
   ">> Pressione ENTER para continuar <<"
+];
+
 ];
 
 let linha = 0;
