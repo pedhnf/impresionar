@@ -1,4 +1,5 @@
 const terminal = document.getElementById("terminal");
+
 const linhas = [
   "Booting... calibrando temperatura 🔥",
   "Carregando módulos de atitude [OK]",
@@ -9,8 +10,6 @@ const linhas = [
   "Mensagem do sistema: se continuar assim, vou travar só pra te ver me reiniciar...",
   "",
   ">> Pressione ENTER para continuar <<"
-];
-
 ];
 
 let linha = 0;
