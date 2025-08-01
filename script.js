@@ -1,34 +1,42 @@
-const mensagem = "Oi, fiz esse site só pra você 😍";
-const elementoMensagem = document.getElementById("mensagem");
-let index = 0;
+const terminal = document.getElementById("terminal");
 
-// Efeito de digitação
+const linhas = [
+  "Booting system...",
+  "Loading modules [OK]",
+  "Connecting to server [OK]",
+  "Initializing interface...",
+  "Access granted.",
+  "",
+  "Mensagem do sistema: Algumas linhas de código valem quando inspiradas em alguém especial.",
+  "",
+  ">> Pressione ENTER para continuar <<"
+];
+
+let linha = 0;
+let char = 0;
+
 function digitar() {
-  if (index < mensagem.length) {
-    elementoMensagem.textContent += mensagem.charAt(index);
-    index++;
-    setTimeout(digitar, 100);
+  if (linha < linhas.length) {
+    if (char < linhas[linha].length) {
+      terminal.innerHTML += linhas[linha].charAt(char);
+      char++;
+      setTimeout(digitar, 35);
+    } else {
+      terminal.innerHTML += "\n";
+      linha++;
+      char = 0;
+      setTimeout(digitar, 250);
+    }
+  } else {
+    document.addEventListener("keydown", redirecionar);
+    document.addEventListener("click", redirecionar);
   }
 }
+
+function redirecionar(e) {
+  if (e.key === "Enter" || e.type === "click") {
+    window.location.href = "segunda.html";
+  }
+}
+
 digitar();
-
-// Botão com confetes
-document.getElementById("botao").addEventListener("click", () => {
-  for (let i = 0; i < 30; i++) {
-    criarConfete();
-  }
-});
-
-function criarConfete() {
-  const confete = document.createElement("div");
-  confete.classList.add("confete");
-  document.body.appendChild(confete);
-
-  const tamanho = Math.random() * 8 + 5 + "px";
-  confete.style.width = tamanho;
-  confete.style.height = tamanho;
-  confete.style.left = Math.random() * window.innerWidth + "px";
-  confete.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-
-  setTimeout(() => confete.remove(), 3000);
-}
